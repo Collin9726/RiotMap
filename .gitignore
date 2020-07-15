@@ -2,3 +2,4 @@ virtual/
 .env
 media/
 *.pyc
+.vscode/
