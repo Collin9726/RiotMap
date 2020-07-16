@@ -22,7 +22,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.contrib.gis.db.backends.postgis',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'maps',
     'bootstrap4',
+    'django.contrib.gis',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+LOGIN_URL = "/accounts/login/" 
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/" 
