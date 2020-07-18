@@ -10,4 +10,9 @@ class Riots(models.Model):
     location = models.PointField(srid=4326)
     objects = GeoManager()
 
-    
+class Counties(models.Model):
+    counties = models.CharField(max_length=25)
+    codes = models.IntegerField()
+    cty_code = models.CharField(max_length=24)
+    dis = models.IntegerField()
+    geom = models.MultiPolygonField(srid=4326)
