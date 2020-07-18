@@ -47,6 +47,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = 'maps'
 
 # Application definition
 
@@ -91,6 +92,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mapsproject.wsgi.application'
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'mapsdb',
+        'USER': 'remmi',
+        'PASSWORD': 'stephen',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 
 
