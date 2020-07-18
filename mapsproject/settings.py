@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'maps',
     'bootstrap4',
+    'django.contrib.gis'
 ]
 
 MIDDLEWARE = [
