@@ -21,4 +21,4 @@ class County(models.Model):
     geom = models.MultiPolygonField(srid=4326)
 
     def __str__(self):
-		return self.counties
+        return self.counties
