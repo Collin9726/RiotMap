@@ -47,6 +47,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = 'maps'
 
 # Application definition
 
@@ -59,6 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'maps',
     'bootstrap4',
+    'leaflet',
+    'django.contrib.gis'
 ]
 
 MIDDLEWARE = [
@@ -91,6 +94,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mapsproject.wsgi.application'
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'mapsdb',
+        'USER': 'remmi',
+        'PASSWORD': 'stephen',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
 
 
 
@@ -145,6 +160,15 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (-.023, 36.87),
+    'DEFAULT_ZOOM': 5,
+    'MAX_ZOOM': 20,
+    'MIN_ZOOM':3,
+    'SCALE': 'both',
+    'ATTRIBUTION_PREFIX': 'Group 2 in work'
+}
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
