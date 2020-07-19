@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views 
 from django.conf.urls import url,include
 from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^',include('maps.urls')),
-    RegistrationView.as_view(success_url='/accounts/login/'),
+    url('accounts/register/',
+        RegistrationView.as_view(success_url='/accounts/login/'),
         name='django_registration_register'),
     url('accounts/', include('django_registration.backends.one_step.urls')),
     #url('accounts/', include('django_registration.backends.activation.urls')),
