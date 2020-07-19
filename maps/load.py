@@ -2,11 +2,10 @@ import os
 from django.contrib.gis.utils import LayerMapping
 from .models import County
 
-counties_mapping = {
+county_mapping = {
     'counties': 'Counties',
     'codes': 'Codes',
     'cty_code': 'Cty_CODE',
-    'dis': 'dis',
     'geom': 'MULTIPOLYGON',
 }
 

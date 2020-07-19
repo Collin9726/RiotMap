@@ -17,8 +17,9 @@ class County(models.Model):
     counties = models.CharField(max_length=25)
     codes = models.IntegerField()
     cty_code = models.CharField(max_length=24)
-    dis = models.IntegerField()
     geom = models.MultiPolygonField(srid=4326)
+    mpoly = models.MultiPolygonField(null=True)
+
 
     def __str__(self):
         return self.counties
