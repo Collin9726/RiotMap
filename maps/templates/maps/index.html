@@ -1,6 +1,7 @@
-{%extends 'base.html'%}
+{%extends 'maps/base.html'%}
 {% load bootstrap4 %} 
 {% load static %}
+
 
 {% block content %}
 {{block.super}}
@@ -10,11 +11,9 @@
         <div class="col-12 text-center">
             <div class="jumbotron">
                 <h1><b>Learn Maps</b></h1>
+                <div id="map"></div>
             </div>
         </div>
     </div>
 </div>
-
-
-
 {% endblock %}

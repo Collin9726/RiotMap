@@ -5,7 +5,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'index.html')
+    return render(request, 'maps/index.html')
 
 
 
