@@ -18,6 +18,15 @@
     {% endblock %}
     {% leaflet_css %}
     {% leaflet_js %}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <link rel="stylesheet" href="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css' %}">
+        <script src="{% static 'leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.js' %}"></script>
+        <script src="{% static 'js/mousePosition.js' %}"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="{% static 'css/styles.css' %}"></script>
 </head>
 <body>
         
@@ -35,10 +44,22 @@
         {% bootstrap_javascript %}
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <script src="{% static 'dist/leaflet.ajax.js' %}"></script>
+        <script src="{% static 'dist/leaflet.ajax.min.js' %}"></script>
+       
+        <script src="{% static 'js/mousePosition.js' %}"></script>
         <script src="{% static 'js/scripts.js' %}"></script>
         <script src="{% static 'css/styles.css' %}"></script>
+        <script>
+            function our_layers(map,options){
+    var datasets = new L.GeoJSON.ajax("{% url 'county' %}",{
+    });
+
+    datasets.addTo(map);
+}
+        </script>
+        
+    {% leaflet_map "gis" callback="window.our_layers"%}
     {% endblock %}
-    {% leaflet_map "gis" %}
-    
 </body>
 </html>

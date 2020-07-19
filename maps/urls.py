@@ -5,8 +5,8 @@ from . import views
 
 urlpatterns=[
     url(r'^$',views.welcome,name = 'welcome'),
-    url('riot/', views.RiotData , name='riots'),
-    url('county/', views.CountyData, name='counties'),    
+    url('riot_data/', views.RiotData , name='riots'),
+    url('county_data/', views.CountyData, name='county'),    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
