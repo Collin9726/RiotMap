@@ -11,8 +11,7 @@
     <title> Awwwards </title>
     {% endif %}
 
-    {% block styles %}
-
+     
     <!-- Font Awesome -->
     <link href="https://fonts.googleapis.com/css?family=Cookie|Lobster|Lobster+Two|Pacifico|Playball|Satisfy"
         rel="stylesheet">
@@ -23,9 +22,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    {% endblock %}
+    
+    
 
   </head>
   <body>
@@ -44,11 +42,9 @@
 
     {%endblock%}
     <br>
-    {% include 'footer.html' %}
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    {% bootstrap_javascript %}
-    <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+    
     {% endblock %}
 
   </body>

@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.serializers import serialize
 from django.http import HttpResponse
 from .models import County,Riot
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     return render(request, 'maps/index.html')
 
