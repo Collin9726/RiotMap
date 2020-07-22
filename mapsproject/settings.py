@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'maps',
     'bootstrap4',
     'leaflet',
+    'django_registration',
     'django.contrib.gis'
 ]
 
@@ -170,5 +171,17 @@ LEAFLET_CONFIG = {
     'ATTRIBUTION_PREFIX': 'Group 2 in work'
 }
 
+LOGIN_URL = "/accounts/login/" # this is the name of the url
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = "/" 
+
+REGISTRATION_OPEN= True
+ACCOUNT_ACTIVATION_DAYS = 5
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
